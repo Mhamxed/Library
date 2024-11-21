@@ -1,0 +1,199 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    --shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    --blur: rgb(0, 0, 0, 0.3);
+}
+
+html {
+    background: inherit;
+}
+
+.background {
+    background-color: var(--blur);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 40px 200px;
+    gap: 20px;
+}
+
+.read-btn {
+    height: 40px;
+    width: 90%;
+    border: none;
+    background-color: #aaffaa;
+    font-weight: bold;
+    border-radius: 10px;
+    color: black;
+    margin-top: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.not_read-btn {
+    height: 40px;
+    width: 90%;
+    border: none;
+    background-color: #ff003F;
+    font-weight: bold;
+    border-radius: 10px;
+    color: black;
+    margin-top: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.remove {
+    height: 40px;
+    width: 90%;
+    border: none;
+    border: 2px solid black;
+    font-weight: bold;
+    border-radius: 10px;
+    color: black;
+    margin-top: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.header {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: 	#ececec;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-weight: 900;
+    font-size: 25px;
+    gap: 10px;
+}
+
+.card {
+    font-weight: bold;
+    background-color: #ececec;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+}
+
+.card p {
+    margin: 4px 0;
+}
+
+.add button {
+    background-color: black;
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    align-self: center;
+    background-color: #ececec;
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+    scale: 0;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.open-popup {
+    scale: 1;
+}
+
+.blur {
+    filter: blur(2px);
+}
+
+.modal label {
+    font-weight: bold;
+}
+
+input {
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    padding: 0 10px;
+    border: none;
+}
+
+.modal button {
+    height: 40px;
+    border: none;
+    background-color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    color: white;
+}
+
+#readit {
+    width: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+button:hover {
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.modal button {
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+form h2 {
+    margin-bottom: 10px;
+}
+
+#title, #author, #pages {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}

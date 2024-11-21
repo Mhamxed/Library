@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/32b27a2753.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fa-solid fa-book"></i>
+                <p>Library</p>
+            </div>
+            <div class="add">
+                <button id="popup_btn" onclick="open_popup()">Add Book</button>
+            </div>
+        </div>
+        <div class="main" id="main">
+        </div>
+        <div class="modal" id="popup">
+            <form action="">
+                <h2>add new book</h2>
+                <label for="title">*Title</label>
+                <input type="text" id="title" placeholder="Title" minlength="1" required>
+                <label for="author">*Author</label>
+                <input type="text" id="author" placeholder="Author" minlength="1" required>
+                <label for="pages">*Pages</label>
+                <input type="number" id="pages" placeholder="Pages" minlength="1" maxlength="10000" required>
+                <div class="checkbox">
+                    <label for="readit">*have you read it?</label>
+                    <input type="checkbox" id="readit">
+                </div>
+                <button type="submit" id="submit_btn">Add</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
