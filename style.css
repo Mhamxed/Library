@@ -124,7 +124,6 @@ html {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    gap: 10px;
     align-self: center;
     background-color: #ececec;
     box-shadow: var(--shadow);
@@ -164,6 +163,7 @@ input {
     font-weight: bold;
     border-radius: 10px;
     color: white;
+    cursor: pointer;
 }
 
 #readit {
@@ -179,10 +179,6 @@ button:hover {
     opacity: 0.9;
 }
 
-.modal button {
-    cursor: pointer;
-}
-
 form {
     display: flex;
     flex-direction: column;
@@ -192,7 +188,6 @@ form h2 {
 }
 
 #title, #author, #pages {
-    margin-bottom: 15px;
     margin-top: 5px;
 }
 
@@ -202,4 +197,12 @@ form h2 {
     justify-content: center;
     gap: 5px;
     margin-bottom: 5px;
+}
+
+.error {
+    color: red;
+    font-size: 0.7rem;
+    margin-bottom: 7px;
+    margin-top: 3px;
+    padding: 0;
 }

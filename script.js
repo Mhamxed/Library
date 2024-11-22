@@ -9,9 +9,9 @@ const add_btn = document.getElementById('popup_btn')
 const header = document.querySelector('.header')
 const main = document.querySelector('.main')
 const submit_btn = document.getElementById('submit_btn')
-const removeButtons = document.querySelectorAll('.remove')
-
-let myLib = []
+const title_error = document.getElementById('title-error')
+const author_error = document.getElementById('author-error')
+const pages_error = document.getElementById('pages-error')
 
 function book(title, author, pages, read){
     this.title = title;
@@ -20,21 +20,9 @@ function book(title, author, pages, read){
     this.read = read;
 }
 
-function addtolib(book){
-    myLib.push(book)
-}
-
-function displayLib(){
-    for (let i = 0; i < myLib.length; i++){
-        let book = myLib[i]
-        displayBook(book)
-    }
-}
-
 //display the books into the page
 function displayBook(book){
     const book_card = document.createElement('div')
-    book_card.setAttribute('id', myLib.indexOf(book))
 
     //create, fill, append the title for each book
     const title_display = document.createElement('p')
@@ -70,29 +58,36 @@ function displayBook(book){
             read_display.textContent = "not read"
             read_display.classList.remove('read-btn')
             read_display.classList.add('not_read-btn')
+            
         } else {
             read_display.textContent = "read"
             read_display.classList.remove('not_read-btn')
             read_display.classList.add('read-btn')
         }
     })
-
+    //create the remove button
     const remove = document.createElement('button')
-    remove.setAttribute('id', 'remove')
     remove.textContent = "remove"
     remove.classList.add('remove')
+    //removes the closed div, which is the book card associated
+    remove.addEventListener('click', () => {
+        remove.closest("div").remove()
+    })
     book_card.append(remove)
 
     book_card.classList.add('card')
     books.appendChild(book_card)
+    
 }
 
+//open the popup form
 function open_popup(){
     popup.classList.add('open-popup')
     header.classList.add('blur')
     main.classList.add('blur')
 }
 
+//click elsewhere to close the opoup
 document.addEventListener('click', (e) => {
     if (!popup.contains(e.target) && e.target !== add_btn){
         popup.classList.remove('open-popup')
@@ -104,18 +99,50 @@ document.addEventListener('click', (e) => {
 
 submit_btn.addEventListener('click', (e) => {
     e.preventDefault();
-    const newBook = new book(title.value, author.value, pages.value, read_it.checked)
-    addtolib(newBook)
-    displayBook(newBook)
-    popup.classList.remove('open-popup')
-    header.classList.remove('blur')
-    main.classList.remove('blur')
-    resetPopup()
-})
+    if (title.value === '' &&  author.value === '' && pages.value === ''){
+        title_error.textContent = "*field required"
+        author_error.textContent = "*field required"
+        pages_error.textContent = "*field required"
+    } else if (title.value === '' &&  author.value === ''){
+        title_error.textContent = "*field required"
+        author_error.textContent = "*field required"
+        pages_error.textContent = ''
+    } else if (author.value === '' && pages.value === ''){
+        title_error.textContent = ""
+        author_error.textContent = "*field required"
+        pages_error.textContent = '*field required'
+    } else if (title.value === '' && pages.value === ''){
+        title_error.textContent = "*field required"
+        author_error.textContent = ""
+        pages_error.textContent = "*field required"
+    } else if (title.value === ''){
+        title_error.textContent = "*field required"
+        author_error.textContent = ''
+        pages_error.textContent = ''
+    } else if (author.value === ''){
+        title_error.textContent = ''
+        author_error.textContent = "*field required"
+        pages_error.textContent = ''
+    } else if (pages.value === ''){
+        title_error.textContent = ''
+        author_error.textContent = ''
+        pages_error.textContent = "*field required"
+    } else if (title.value !== '' &&  author.value !== '' && pages.value !== ''){
+        const newBook = new book(title.value, author.value, pages.value, read_it.checked)
+        displayBook(newBook)
+        popup.classList.remove('open-popup')
+        header.classList.remove('blur')
+        main.classList.remove('blur')
+        resetPopup()
+    }
+    })
 
 function resetPopup(){
     title.value = ''
     author.value = ''
     pages.value = ''
     read_it.checked = false
+    title_error.textContent = ''
+    author_error.textContent = ''
+    pages_error.textContent = ''
 }

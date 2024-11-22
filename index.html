@@ -25,13 +25,16 @@
             <form action="/" method="get">
                 <h2>add new book</h2>
                 <label for="title">*Title</label>
-                <input type="text" id="title" placeholder="Title"/>
+                <input type="text" id="title" placeholder="Title" required/>
+                <div class="error" id="title-error"></div>
 
                 <label for="author">*Author</label>
-                <input type="text" id="author" placeholder="Author"/>
+                <input type="text" id="author" placeholder="Author" required/>
+                <div class="error" id="author-error"></div>
 
                 <label for="pages">*Pages</label>
-                <input type="number" id="pages" placeholder="Pages"/>
+                <input type="number" id="pages" placeholder="Pages" max="10000" required/>
+                <div class="error" id="pages-error"></div>
                 
                 <div class="checkbox">
                     <label for="readit">*have you read it?</label>
