@@ -49,13 +49,13 @@ function displayBook(book){
         read_display.classList.add('read-btn')
         book_card.append(read_display)
     } else {
-        read_display.textContent = "not read"
+        read_display.textContent = "unread"
         read_display.classList.add('not_read-btn')
         book_card.append(read_display)
     }
     read_display.addEventListener('click', () => {
         if (read_display.textContent === "read"){
-            read_display.textContent = "not read"
+            read_display.textContent = "unread"
             read_display.classList.remove('read-btn')
             read_display.classList.add('not_read-btn')
             
